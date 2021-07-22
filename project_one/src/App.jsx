@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div classname="App">
+      <div className="App">
         <RestaurantGrid items={this.state.items}/>
       </div>
     );

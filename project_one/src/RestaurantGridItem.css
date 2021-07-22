@@ -3,9 +3,21 @@
   padding: 1px;
   margin: auto;
 }
-.title {
+.name {
   margin: auto;
+  margin-bottom: 3px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+
 }
+
+.type {
+  margin-top:0px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 200;
+}
+
+
 .logo {
   width: 30%;
   height: auto;
