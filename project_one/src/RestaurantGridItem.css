@@ -1,0 +1,12 @@
+.item {
+  border: 1px solid black;
+  padding: 1px;
+  margin: auto;
+}
+.title {
+  margin: auto;
+}
+.logo {
+  width: 30%;
+  height: auto;
+}

@@ -16,6 +16,9 @@ class App extends React.Component {
     axios.get(`https://random-data-api.com/api/restaurant/random_restaurant?size=50`)
       .then((res) => {
         console.log('res! ', res)
+        this.setState({
+          items: res.data
+        })
       })
       .catch((err) => {
         console.log('err: ', err)
@@ -24,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div classname="App">
         <RestaurantGrid items={this.state.items}/>
       </div>
     );
