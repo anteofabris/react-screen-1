@@ -21,6 +21,11 @@ class RestaurantGridItem extends React.Component {
   }
 
   getStatus() {
+    // first get the day of the week
+    var dayArray = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+    var day = new Date().getDay()
+    var dayKey = dayArray[day]
+
     var checkStatus = (open, close) => {
 
       var openTo24 = open.split(' ')[1] === 'AM' ? 0 : 12
@@ -45,6 +50,8 @@ class RestaurantGridItem extends React.Component {
 
 
     }
+
+    return checkStatus(this.props.item.hours[dayKey].opens_at, this.props.item.hours[dayKey].closes_at)
 
 
   }
