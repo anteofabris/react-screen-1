@@ -15,7 +15,7 @@ class RestaurantGridItem extends React.Component {
 
 
   componentDidMount() {
-    console.log('an item!', this.props)
+
 
 
   }
@@ -39,7 +39,6 @@ class RestaurantGridItem extends React.Component {
       var now = new Date()
       var nowHrs = now.getHours()
       var nowMins = now.getMinutes()
-      console.log('opens: ', openHours, openMins, 'closes: ', closeHours, closeMins, 'currently: ', nowHrs, nowMins)
 
       // if now is greater than openhours and greater than openMins and less than closehours and less than closemins
       if ((nowHrs > openHours || (nowHrs === openHours && nowMins >= openMins)) && (nowHrs < closeHours || (nowHrs === closeHours && nowMins <= closeMins))) {

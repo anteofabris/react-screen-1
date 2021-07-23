@@ -3,6 +3,13 @@
   padding: 1px;
   margin: auto;
 }
+
+.item:hover{
+  color: #ff7a59;
+  border: #ff7a59 solid 1px;
+  background:#fff;
+}
+
 .name {
   margin: auto;
   margin-bottom: 3px;
