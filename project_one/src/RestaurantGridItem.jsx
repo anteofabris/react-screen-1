@@ -8,6 +8,8 @@ class RestaurantGridItem extends React.Component {
     this.state = {
       status: null
     }
+
+    this.getStatus = this.getStatus.bind(this)
   }
 
 
@@ -19,11 +21,30 @@ class RestaurantGridItem extends React.Component {
   }
 
   getStatus() {
-    // get current day
-    // if !this.props.item.hours[currentDay].is_closed
+    var checkStatus = (open, close) => {
 
-    // else
+      var openTo24 = open.split(' ')[1] === 'AM' ? 0 : 12
+      var openHours = Number(open.split(':')[0]) === 12 ? 0 + openTo24 : Number(open.split(':')[0]) + openTo24
+      var openMins = Number(open.split(':')[1].split(' ')[0])
 
+      var closeTo24 = close.split(' ')[1] === 'AM' ? 0 : 12
+      var closeHours = Number(close.split(':')[0]) === 12 ? 0 + closeTo24 : Number(close.split(':')[0]) + closeTo24
+      var closeMins = Number(close.split(':')[1].split(' ')[0])
+
+      var now = new Date()
+      var nowHrs = now.getHours()
+      var nowMins = now.getMinutes()
+      console.log('opens: ', openHours, openMins, 'closes: ', closeHours, closeMins, 'currently: ', nowHrs, nowMins)
+
+      // if now is greater than openhours and greater than openMins and less than closehours and less than closemins
+      if ((nowHrs > openHours || (nowHrs === openHours && nowMins >= openMins)) && (nowHrs < closeHours || (nowHrs === closeHours && nowMins <= closeMins))) {
+        return 'open!'
+      } else {
+        return 'closed!'
+      }
+
+
+    }
 
 
   }
@@ -46,3 +67,6 @@ class RestaurantGridItem extends React.Component {
 }
 
 export default RestaurantGridItem;
+
+
+
